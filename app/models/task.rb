@@ -9,12 +9,16 @@
 #  category_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  owner_id    :bigint           not null
 #
 class Task < ApplicationRecord
   belongs_to :category
+  belongs_to :owner, class_name: 'User'
+  has_many :participating_users, class_name: 'Participant'
+  has_many :participants, through: participating_users, source: :user
 
   #Validations
-  validates :name, :description, presence: true
+  validates :name, :description, :participating_users, presence: true
   validates :name, uniqueness: { case_insensitive: false }
   validate :due_date_validity
 
