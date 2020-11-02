@@ -28,6 +28,7 @@ gem 'i18n-tasks'
 gem 'rails-i18n'
 gem 'devise'
 gem 'cocoon'
+gem 'cancancan'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -54,6 +55,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'hamlit-rails'
+
+  gem 'letter_opener'
 
 end
 

@@ -1,10 +1,16 @@
 class TasksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    #@tasks = Task.all.where(owner_id == current_user.id)
+    @tasks = Task.joins(:participants).where(
+      'owner_id = ? OR participants.user_id = ?',
+      current_user.id,
+      current_user.id
+    ).group(:id)
   end
 
   # GET /tasks/1
@@ -69,6 +75,16 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :description, :due_date, :category_id)
+      params.require(:task).permit(
+        :name,
+        :description,
+        :due_date,
+        :category_id,
+        participating_users_attributes: [
+          :id,
+          :user_id,
+          :role,
+          :_destroy
+        ])
     end
 end
