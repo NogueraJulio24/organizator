@@ -1,4 +1,18 @@
-# spec/models/task_spec.rb
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  description :text
+#  due_date    :date
+#  category_id :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  owner_id    :bigint           not null
+#  code        :string
+#  is_deleted  :boolean          default(FALSE)
+#
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do

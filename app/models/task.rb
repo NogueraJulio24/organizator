@@ -11,13 +11,14 @@
 #  updated_at  :datetime         not null
 #  owner_id    :bigint           not null
 #  code        :string
+#  is_deleted  :boolean          default(FALSE)
 #
 class Task < ApplicationRecord
   belongs_to :category
   belongs_to :owner, class_name: 'User'
-  has_many :participating_users, class_name: 'Participant'
+  has_many :participating_users, class_name: 'Participant', dependent: :destroy
   has_many :participants, through: :participating_users, source: :user
-  has_many :notes
+  has_many :notes, dependent: :destroy
 
   #Validations
   validates :name, :description, :participating_users, presence: true
