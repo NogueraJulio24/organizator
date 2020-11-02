@@ -12,7 +12,24 @@ es:
     new_category: Nueva Categoría
   common:
     back: Atrás
+    destroy: Eliminar
+    edit: Editar
+    show: Mostrar
   hello: Hola Mundo
   task:
     errors:
       invalid_due_date: La fecha no puede estar en el pasado
+  tasks:
+    category: Categoría
+    description: Descripción
+    due_date: Fecha de vencimiento
+    errors:
+      invalid_due_date: No se puede agregar una fecha anterior futura
+    form:
+      category: Categoría
+      description: Descripción
+      due_date: Fecha de vencimiento
+      name: Nombre
+    listing_tasks: Listado de Tarea
+    name: Nombre
+    new_task: Nueva Tarea

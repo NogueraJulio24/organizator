@@ -12,10 +12,24 @@ en:
     new_category: Nueva Categoría
   common:
     back: Atrás
+    destroy: Destroy
+    edit: Edit
+    show: Show
   hello: Hello world
   task:
     errors:
       invalid_due_date: Invalid due date
   tasks:
+    category: Category
+    description: Description
+    due_date: Due date
     errors:
       invalid_due_date: No se puede agregar una fecha anterior futura
+    form:
+      category: Category
+      description: Description
+      due_date: Due date
+      name: Name
+    listing_tasks: Listing tasks
+    name: Name
+    new_task: New task
