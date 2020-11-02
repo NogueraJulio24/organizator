@@ -9,5 +9,5 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'partials/navbar'
-    = link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete
+    = link_to 'Cerrar Sesión', destroy_user_session_path
     = yield
