@@ -11,7 +11,7 @@
   = @task.due_date
 %p
   %b Category:
-  = @task.category
+  = @task.category.name
 
 .notes-container
   - @task.notes.each do |note|
