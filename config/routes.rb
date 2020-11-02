@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  
   devise_for :users
+  devise_scope :user do
+    authenticated :user do
+      root 'tasks#index', as: :authenticated_root
+    end
+
+    unauthenticated :user do
+      root "welcome#index", as: :unauthenticated_root
+    end
+  end
+  
   resources :tasks do
     resources :notes, only: [:create], controller: 'tasks/notes'
   end
